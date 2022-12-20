@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>add_remove.html</title>
+</head>
+<body>
+  <h3>노드 추가 삭제</h3>
+  <button class="btnadd">+</button>
+  <div class="temp">
+    <input id="school"><input id="dt"><button class="btn">-</button>
+  </div>
+  <div id="result"></div>
+
+  <script>
+    //배열로 반환되므로 [0]을 붙여줘야함
+    let btnadd = document.getElementsByClassName("btnadd")[0];
+    
+    btnadd.onclick = function(){
+
+      /* result.innerHTML += `<div class="temp">
+      <input id="school"><input id="dt"><button class="btn">-</button>
+      </div>` */
+
+      let div = document.createElement("div"); //<div></div> 생성
+      div.setAttribute("class","temp"); //<div class="temp"></div>
+      
+      let input = document.createElement("input"); // <input> 생성
+
+      div.appendChild(input); // div에 input을 append
+      // <div class="temp"><input></div>
+
+      input = document.createElement("input"); // <input> 생성
+
+      div.appendChild(input); // div에 input을 append
+      // <div class="temp"><input><input></div>
+
+      let button = document.createElement("button"); //<button></button> 생성
+      button.setAttribute("class","btn"); // <button class="btn"></button>
+      button.innerText = "-"; //<button class="btn">-</button>
+      
+      div.appendChild(button);
+    /*  <div class="temp">
+          <input><input><button class="btn">-</button>
+        </div> 
+    */
+
+      //result에 div를 append
+      result.appendChild(div); // 부모태그에 자식태그 연결
+    }
+  </script>
+</body>
+</html>
