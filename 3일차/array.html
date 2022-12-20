@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn">추가</button>
+  <button id="delBtn">삭제</button>
+  <div id="result"></div>
+  <script>
+
+    let fruit = new Array(); // 또는 []
+
+    addBtn.onclick = function(){
+      fruit.push(txt.value);
+      result.innerText = fruit.toString();
+      txt.value = ""; 
+    }
+
+    // 삭제 버튼을 클릭하면
+    delBtn.onclick = function(){
+      let idx = fruit.indexOf(txt.value);
+      if(idx > 0){
+      fruit.splice(idx,1);
+      result.innerText = fruit.toString();
+      }else{
+        alert("삭제할 값이 존재하지 않습니다");
+      }
+    }
+    
+  </script>
+</body>
+</html>

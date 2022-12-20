@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt1"><input id="txt2"> <!--txt1은 value속성 , txt2는 태그내용 -->
+  <button id="addBtn1">추가</button>
+  <button id="addBtn2">추가</button>
+  <select id="itemList" size="10">
+    <option value="apple">사과</option>
+  <script>
+
+     //<1번 방법>
+    addBtn1.onclick = function(){
+      // 태그 생성
+      let option = document.createElement("option");
+
+      // 태그에 속성을 지정
+      option.setAttribute("value",txt1.value);
+
+      // 태그 내용 변경
+      option.innerText = txt2.value;
+      // let tnode = document.createTextNode(txt2.value)
+      // option.appendChild(tnode)
+
+      // 이벤트 지정
+
+      // 부모태그에 연결
+      itemList.appendChild(option);
+      }
+
+      addBtn2.onclick = function(){
+        // 2번방법
+        /* itemList.innerHTML = itemList.innerHTML + '<li class="item">'+ txt.value + '</li>'; 라는 의미
+        += 는 append와 같은 의미다.
+        itemList.innerHTML += '<li class="item">'+ txt.value + '</li>'; */
+
+        // 3번 방법 : 템플릿 리터럴
+        itemList.innerHTML += `<option value="${txt1.value}">${txt2.value}</option>`;
+      }
+  </script>
+</body>
+</html>

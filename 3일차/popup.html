@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="btnSelect">선택</button>
+  <button id="btnClose">닫기</button>
+  <button id="btnPage">부모창페이지이동</button>
+  <script>
+    btnSelect.onclick = function(){
+      //텍스트 필드의 입력값을 부모창의 div#x에 출력 : opener(부모창을 의미)
+      opener.document.querySelector("#x").innerHTML = txt.value; 
+    }
+
+    btnClose.onclick = function(){
+      //팝업창 닫기 : window, self
+      window.close();
+    }
+
+    btnPage.onclick = function(){
+      // 부모창의 페이지 이동 : location.assign() 이용
+      opener.location.assign(txt.value);
+    }
+
+  </script>
+</body>
+
+</html>

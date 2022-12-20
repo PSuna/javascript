@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* 
+    // 두수의 합을 계산하는 함수를 선언
+    function total(){
+      let num1 = 10;
+      let num2 = 20;
+      let sum = num1 + num2;
+      alert(sum);
+    } */
+
+    //debugger;
+
+/*     // 두수의 합을 계산하는 함수를 선언 : 매개변수 부분
+    function total(num1, num2){
+      let sum = num1 + num2;
+      alert(sum);
+    }
+
+    //함수 호출해서 실행
+    total(10,20);
+    total(100,200); */
+
+    // 두수의 합을 계산하는 함수를 선언 : return 부분
+    function total(num1, num2){
+      let sum = num1 + num2;
+      return sum;
+    }
+    
+    function print(param){
+      console.log("================");
+      console.log(param);
+      console.log("================");
+    }
+
+    //함수 호출해서 실행
+    let s = total(10,20);
+    print(s)
+    
+    s = total(100,200);
+    print(s);
+
+  </script>
+</body>
+</html>

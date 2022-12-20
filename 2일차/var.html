@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var asum = 0; // 전역변수
+    let cnt = 0;
+    addNumber();
+    alert(asum);
+
+    function addNumber(){
+      var asum = 0; // 지역변수
+      for(var i = 0 ; i < 1; i++){ /* var는 블록변수가 없음 따라서 여기서는 지역변수임
+                                      var를 생략해버리면 전역변수 i 가됨 */
+        asum += 10;
+      }
+      console.log(i); // i가 보이는가?
+    }
+
+  </script>
+</body>
+</html>

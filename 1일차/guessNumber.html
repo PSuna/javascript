@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      작성일자 : 2022
+      작성자 : 박선아
+      내용 : 숫자 맞추기 게임
+    */
+
+    // 임의의 수 생성
+    let num = Math.floor(Math.random() * 10) + 1;
+    let turn = 0;
+
+    // 맞을때까지 반복
+    while (true) {
+      // 사용자가 숫자 입력
+      let guess = prompt("1~10 수를 입력(0은 종료)","5");
+      
+      turn++; //입력받을때마다 1씩 증가 count 역할
+      
+      // 입력값이 0이면 종료
+      if(guess == 0){
+        alert("게임중지");
+        break;
+      }
+
+      // 시도 횟수가 3회이상이면 '게임오버' 출력 후 종료
+      if(turn >= 3){
+        alert("게임오버");
+        break;
+      }
+
+      // 정답이면 종료, 크면, 작으면
+      if(num == guess){
+        alert("정답");
+        break;
+      }else if (num < guess) { // 작으면 작다 출력하고 다시 입력으로
+        alert("작다");
+      }else { // 크면 크다 출력하고 다시 입력으로
+        alert("크다");
+      }
+    }
+  </script>
+</body>
+</html>

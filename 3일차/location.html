@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input>
+  <button id="btnPre">이전페이지</button>
+  <button id="btnReload">새로고침</button>
+
+  <script>
+    btnPre.onclick = function(){
+      history.go(-1); // history.back() 도 같음
+    }
+    
+    btnReload.onclick = function(){
+      location.reload();
+    }
+    console.log(location);
+    console.log(location.href);
+
+  </script>
+</body>
+</html>

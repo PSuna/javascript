@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>10430</title>
+</head>
+<body>
+  <script>
+    let num = prompt("숫자 3개를 입력하세요").split(" "); //입력값을 받은 배열, " " 기준으로 자름
+    let A = parseInt(num[0]);
+    let B = parseInt(num[1]);
+    let C = parseInt(num[2]);
+    
+    console.log((A + B) % C);
+    console.log(((A % C) + ( B % C)) % C);
+    console.log((A * B) % C);
+    console.log(((A % C) * (B % C)) % C);
+
+  </script>
+</body>
+</html>

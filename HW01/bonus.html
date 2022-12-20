@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+</head>
+<body>
+  <input id="txt1"><input id="txt2">
+  <button id="addBtn1">추가</button>
+  <button id="addBtn2">추가</button>
+  <table border="1">
+    <tbody id="itemList">
+    <tr>
+      <td>txt1.value</td>
+      <td>txt2.value</td>
+    </tr>
+    </tbody>
+  </table>
+  <script>
+    //<1번 방법>
+    addBtn1.onclick = function(){
+    //tr 태그 생성
+    let tr = document.createElement("tr"); //<tr>
+    
+    //td 태그 생성하여 tr에 추가
+    let td = document.createElement("td"); //<td>
+    td.innerText = txt1.value; // <td>txt1.value</td>
+    tr.appendChild(td);
+
+    //td 태그 생성하여 tr에 추가
+    let td2 = document.createElement("td"); // <td>
+    td2.innerText = txt2.value; //<td>txt2.balue</td>
+    tr.appendChild(td2);
+
+    //tr을 tbody에 append
+    itemList.appendChild(tr);
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>2525</title>
+</head>
+<body>
+  <script>
+    let start_time = prompt("현재 시각을 입력하세요").split(" ");
+    let need_time = parseInt(prompt("요리하는데 필요한 시간(분)을 입력하세요"));
+    let A = parseInt(start_time[0]); // 시
+    let B = parseInt(start_time[1]); // 분
+
+    // Date 객체를 이용하는 방법
+    let end_time = new Date(2022,11,19,A,B + need_time);
+    console.log(end_time.getHours() + " " + end_time.getMinutes());
+  </script>
+</body>
+</html>

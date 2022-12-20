@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>2884</title>
+</head>
+<body>
+  <script>
+    /* 45분 일찍 알람 설정하기 */
+    // 24시간 표현, H시 M분
+
+    let clock = prompt().split(" "); // 알람시간
+    let H = parseInt(clock[0]); // 시
+    let M = parseInt(clock[1]); // 분
+
+    /* 
+      1. 만약 0시 x분에 알람을 맞췄다면(이때 x가 45분보다 작다면) 
+      => H는 24-1=23이 되고, M은 60-(45-M) = M + 15
+      2. M이 45분보다 크다면 H는 그대로, M-45
+      3. M이 45분보다 작다면 H-1, 60 - (45-M) = M + 15
+      4. M이 45분 이라면 H만 나오도록 하기
+    */
+
+    if(H == 0 && M < 45){
+      console.log(23 + " " + (M+15));
+    }else if(M > 45){
+      console.log(H + " " + (M-45));
+    }else if(M < 45){
+      console.log(H-1 + " " + (M+15));
+    }else if(M == 45){
+      console.log(H);
+    }
+
+  </script>
+</body>
+</html>

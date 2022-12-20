@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn">추가</button>
+  <ul id="itemList">
+    <li class="item">test</li>
+  </ul>
+  <script>
+
+    // <1번 방법>
+    /* addBtn.onclick = function(){
+      // 태그 생성
+      let li = document.createElement("li"); // <li>
+      
+      // 태그에 속성을 지정
+      li.setAttribute("class","item"); // <li class="item">
+      
+      // 태그 내용 변경
+      li.innerText = txt.value; // <li class="item">text
+
+      // 이벤트 지정
+
+      // 부모태그에 연결
+      itemList.appendChild(li);
+      } */
+
+      addBtn.onclick = function(){
+        // 2번방법 => 이 방법이 더 많이 쓰인다.
+        /* itemList.innerHTML = itemList.innerHTML + '<li class="item">'+ txt.value + '</li>'; 라는 의미
+        += 는 append와 같은 의미다.
+        itemList.innerHTML += '<li class="item">'+ txt.value + '</li>'; */
+
+        // 3번 방법 : 템플릿 리터럴
+        itemList.innerHTML += `<li class="item">${txt.value}</li>`;
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      <var 와  let의 차이>
+      var : 중복 선언 가능O , ex) var a = 10; var a = 20; 이렇게 선언 가능 
+      ⇒ 전역변수 - 함수 밖에 선언 ⇒ 모든 함수에서 사용 가능
+      ⇒ 지역변수 - 함수 안에 선언 ⇒ 해당 함수만 사용 가능
+
+      let : 중복 선언 불가X 
+      ⇒ block (블록)변수 : { } (지역변수 보다 좁은 의미임) 
+      ⇒ script 변수 - 함수 밖에 선언 ⇒ 모든 함수에서 사용 가능
+      ⇒ local (지역)변수 - 함수 안에 선언 ⇒ 해당 함수만 사용 가능
+    */
+          
+    let sum = 0; // script 변수
+    sum = addNumber();
+    addNumber();
+    subNumber();
+    alert(sum);
+
+    function addNumber(){
+      let sum = 0; // local (지역)변수
+      for(let i =0; i<1; i++){ // block (블록)변수 i => 따라서 {}를 벗어나면 사라지는 변수이다.
+        let a = 0; // block (블록)변수
+        sum += 10;
+      }
+      console.log(i);
+      return sum;
+    }
+
+    function subNumber(){
+      sum -=10;
+    }
+  </script>
+</body>
+</html>

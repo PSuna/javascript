@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let now = new Date();
+    let today = new Date("2022-10-01"); 
+
+     //둘다 값이 다르게 나옴 따라서 "2022-10-01" 이렇게 사용하는게 좋음
+    console.log(now.getHours());
+    console.log(today.getHours());
+
+    now.setFullYear(2000);
+    console.log(now);
+   
+    now.setMonth(now.getMonth() + 10); // 10월달을 더해줌
+    console.log(now);
+
+
+  </script>
+</body>
+</html>

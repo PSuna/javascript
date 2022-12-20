@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let score = prompt("정수입력");
+  
+  //점수가 60점이상이면 "합격" 아니면 "불합격"
+  if(score >= 60){
+    alert("합격");
+    //등급 80 : 우수 , 70 : 보통, 60 : 분발
+    if(score >= 80){
+      alert("우수");
+    }else if(score >= 70){
+      alert("보통");
+    }else{
+      alert("분발");
+    }
+  }else{
+    alert("불합격");
+  }
+
+</script>
+</body>
+</html>

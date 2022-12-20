@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+    let now = new Date();
+    let firstDay = new Date("2022-10-01");
+    let dDay = new Date("2023-5-31"); //d-day 계산
+
+    let passTime = now.getTime() - firstDay.getTime();
+    let passTime2 = dDay.getTime() - now.getTime();
+
+    // innerHTML은 태그가 추가로 들어갈수있음
+    result.innerHTML = Math.round(passTime / 1000 / 60 / 60 / 24) + "일 경과" + "<br>";
+    // += 는 이어 붙이는것 그냥 = 하면 덮어 씌워짐
+    result.innerHTML += Math.round(passTime / 1000 / 60 / 60)+ "시간 경과" + "<br>";
+    // innerText 는 태그가 못들어가고 데이터 값만 들어갈수있음
+    result.innerText += Math.round(passTime2 / 1000 / 60 / 60 / 24) + "일 경과";
+  </script>
+</body>
+</html>
