@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <body>
+    <img src="img/강아지.jfif" id="img">
+  </body>
+  <script>
+    /*  0~0.9999 사이의 임의의 수가(소수점) 만들어짐 => 0~9사이로 바꾼다면 *10을 해주면됨
+     1~10 사이로 바꾼다면 *10+1 해주면됨
+    let num = Math.floor(Math.random() * 50)+50; // 50~ 100까지 */
+    
+    let imgArr = new Array();
+    
+    imgArr.push("img/강아지.jfif");
+    imgArr.push("img/강아지2.jfif");
+    imgArr.push("img/강아지3.jfif");
+    imgArr.push("img/레드향.jfif");
+
+    /* function changeImg(){
+      let num = Math.floor(Math.random()*imgArr.length);
+      img.src = imgArr[num];
+    } */
+
+    window.setInterval(()=>{
+      let num = Math.floor(Math.random()*imgArr.length);
+      img.src = imgArr[num];}, 2000);
+
+  </script>
+</body>
+</html>

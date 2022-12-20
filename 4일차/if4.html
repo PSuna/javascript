@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  .red { color : red; }
+  </style>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    let score = [55,65];
+
+/*     let class_member = score < 60 ? "red" : ""; 
+    result.innerHTML += `<div class=${class_member}>${score}</div>` */
+
+    for(let i =0; i<score.length ; i++){
+      result.innerHTML += `<div class=${score[i] < 60 ? "red" : ""}>${score[i]}</div>`
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    let lotto = [];
+    let i = 0;
+
+    //for
+    for(i =0 ; i<6; i++){
+      let num = Math.round(Math.random()*45)+1;
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num);
+        
+      }else{
+        i--;
+      }
+    }
+    console.log(lotto);
+
+    
+    lotto = [];
+    i=0;
+    
+    //while
+    while(i < 6 ){
+      let num = Math.round(Math.random()*45)+1;
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num);
+        i++;
+      }
+    }
+    console.log(lotto);
+
+    lotto = [];
+    i = 0;
+
+    do{
+      let num = Math.round(Math.random()*45)+1;
+      if(lotto.indexOf(num) == -1){
+        lotto.push(num);
+        i++;
+      }
+    }while(i < 6)
+    
+    console.log(lotto);
+
+  </script>
+</body>
+</html>

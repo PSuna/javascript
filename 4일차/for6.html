@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h3>break, continue</h3>
+  <script>
+
+    let arr = [10,5,20];
+    let num = 30 //검색값
+    
+    //indexOf 검색
+    let i = 0;
+    let idx= -1;
+    
+    for(i = 0; i < arr.length; i++){
+      if(arr[i] == num){
+        idx = i;
+        break; // 반복문(for, while, do-while)을 빠져나감
+      }
+    }
+    console.log(idx);
+    console.log(i);
+
+  </script>
+</body>
+</html>

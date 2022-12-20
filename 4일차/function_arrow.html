@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //div.onclick = function(){} // 익명 함수
+
+    /* // return문 하나만 있는 경우
+    let hi = function(){
+      return "hello";
+    }
+
+    let hi = () => "hello"; // 실행문이 return 값만 있다면 이렇게 표현가능
+    console.log(hi()); */
+
+    /* //매개변수가 하나만 있는 경우
+    let hi = function(name){
+      return name + "hello";
+    }
+
+    let hi = name => name + "hello"; // 인수가 1개라면 () 생략 가능
+    console.log(hi("choi")); */
+
+    /* // ★ return이 없는 경우 {} 생략 불가능
+    let hi = function(name){
+      alert(name + "hello");
+    } */
+
+
+    // 예제 1번 
+    function sum(a,b){
+      return a+b;
+    }
+
+    let sum = (a,b) => a+b;
+    console.log(sum(10,20));
+
+
+    
+
+  </script>
+</body>
+</html>
