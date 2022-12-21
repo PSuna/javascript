@@ -29,7 +29,7 @@
 
 <div id="container">
   <div class="card">
-    <img src="img/말티즈.jpg" alt="Avatar" style="width:100%; height: auto;">
+    <img src="img/말티즈.jpg" alt="Avatar" style="width:100%;">
     <div class="container">
       <h4><b>John Doe</b></h4> 
       <p>Architect & Engineer</p> 
@@ -38,22 +38,32 @@
 </div>
 <script>
   /*위에 카드를 만들어서 name과 skill, img을 넣어주고 persons개수만큼 container에 추가*/
-  let persons = [{name:"choi", skill:"", img:"img/강아지.jfif"}, 
-                {name:"park", skill:"30", img:"img/강아지2.jfif"},
-                {name:"kim", skill:"50", img:"img/강아지3.jfif"} ];
+  let persons = [{name:"choi", skill:"말하기", img:"img/강아지.jfif"}, 
+                {name:"park", skill:"발표능력", img:"img/강아지2.jfif"},
+                {name:"kim", skill:"업무능력", img:"img/강아지3.jfif"} ];
 
-  for(let i = 0; i<persons.length; i++){
+  // 첫번째 방법
+  /* for(let i = 0; i<persons.length; i++){
     let newNode = `<div class="card">
-                    <img src="${persons[i].img}" alt="Avatar" style="width:100%; height: auto">
+                    <img src="${persons[i].img}" alt="Avatar" style="width:100%;">
                     <div class="container">
                       <h4><b>${persons[i].name}</b></h4>
                       <p>${persons[i].skill}</p>
                     </div>
                    </div>`
-    container.innerHTML += newNode;
 
-    //과제 cloneNoe 사용해서 append2.html 참고해서 
+    container.innerHTML += newNode;
+  } */
+
+  //두번째 방법: cloneNode 사용해서 만들어보기 append2.html 참고해서
+  for(let i=0; i<persons.length; i++){
+    let div = document.getElementsByClassName("card")[0].cloneNode(true);//아래의 자식태그까지 복사
+    div.querySelector("img").src = persons[i].img;
+    div.querySelector("b").innerText = persons[i].name;
+    div.querySelector("p").innerText = persons[i].skill;
+    container.append(div);
   }
+  
 </script>
 </body>
 </html> 
