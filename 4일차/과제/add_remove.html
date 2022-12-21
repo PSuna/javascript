@@ -26,11 +26,13 @@
       div.setAttribute("class","temp"); //<div class="temp"></div>
       
       let input = document.createElement("input"); // <input> 생성
+      input.setAttribute("id","school");
 
       div.appendChild(input); // div에 input을 append
       // <div class="temp"><input></div>
 
       input = document.createElement("input"); // <input> 생성
+      input.setAttribute("id","dt");
 
       div.appendChild(input); // div에 input을 append
       // <div class="temp"><input><input></div>
@@ -40,11 +42,11 @@
       button.innerText = "-"; //<button class="btn">-</button>
       
       div.appendChild(button);
+
     /*  <div class="temp">
           <input><input><button class="btn">-</button>
         </div> 
     */
-
       //result에 div를 append
       result.appendChild(div); // 부모태그에 자식태그 연결
     }

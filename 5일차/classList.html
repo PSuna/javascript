@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .panel {
+      color : blue;
+      font-size: 2em;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게 보이게 토글</button>
+  <div class="panel">div</div>
+  <script>
+    btn.onclick = function(){
+      document.querySelector("div").classList.toggle("hide");
+    }
+  </script>
+</body>
+</html>

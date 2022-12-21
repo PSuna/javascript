@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+#container { /*스타일은 알아서 바꿔보기*/
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-gap: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2>Card</h2>
+
+<div id="container">
+  <div class="card">
+    <img src="img/말티즈.jpg" alt="Avatar" style="width:100%; height: auto;">
+    <div class="container">
+      <h4><b>John Doe</b></h4> 
+      <p>Architect & Engineer</p> 
+    </div>
+  </div>
+</div>
+<script>
+  /*위에 카드를 만들어서 name과 skill, img을 넣어주고 persons개수만큼 container에 추가*/
+  let persons = [{name:"choi", skill:"", img:"img/강아지.jfif"}, 
+                {name:"park", skill:"30", img:"img/강아지2.jfif"},
+                {name:"kim", skill:"50", img:"img/강아지3.jfif"} ];
+
+  for(let i = 0; i<persons.length; i++){
+    let newNode = `<div class="card">
+                    <img src="${persons[i].img}" alt="Avatar" style="width:100%; height: auto">
+                    <div class="container">
+                      <h4><b>${persons[i].name}</b></h4>
+                      <p>${persons[i].skill}</p>
+                    </div>
+                   </div>`
+    container.innerHTML += newNode;
+
+    //과제 cloneNoe 사용해서 append2.html 참고해서 
+  }
+</script>
+</body>
+</html> 
