@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>서버에서 비동기로 데이터 가져오기</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>userid</td>
+        <td>id</td>
+        <td>title</td>
+        <td>body</td>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+  <script>
+    // 바뀌는건 url, 응답처리 내용만 달라짐
+    //1. xhr 객체 생성 : 서버랑 통신시켜주는 객체생성 new Date와 같은거임
+    let xhr = new XMLHttpRequest();
+
+    // 2. ★ 콜백함수: 여기서 모든 처리가 이루어짐
+    // ★ 만약 callback() 이라면 함수가 바로 실행되므로 연결만 시켜주기위해서 callback 이어야함
+    xhr.onload = callback; 
+
+    // 3. 요청 연결
+    let url = "https://jsonplaceholder.typicode.com/posts"
+    xhr.open("get", url);
+
+    // 4. 서버쪽으로 요청 전달
+    xhr.send();
+
+    function callback(){
+      //xhr.response : 요청한것에 대한 응답 내용들(결과들)이 있는곳
+      //★ 서버에서 가져오는 값은 다 String이다 => 따라서 JSON.parse를 해줘야함
+
+      let obj = JSON.parse(xhr.response);
+      //console.log(obj.title);
+      
+      for(let i = 0 ; i <obj.length; i++){
+        let tr = `<tr>
+                    <td>${obj[i].userId}</td>
+                    <td>${obj[i].id}</td>
+                    <td>${obj[i].title}</td>
+                    <td>${obj[i].body}</td>
+                  </tr>`;
+        list.innerHTML += tr;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td><button>조회</button></td>
+    </tr>
+  </table>
+
+  <script>
+    let table = document.querySelector("table");
+    table.addEventListener("click",function(ev){
+      // ev.target : 클릭한 태그(이벤트가 발생한 대상)
+      // 버튼을 클릭했으면 해당버튼의 td태그의 내용 조회
+      let node = ev.target;
+
+      if(node.nodeName == "BUTTON"){ // 버튼을 클릭했을때만 실행되도록 조건을 걸어줌
+        // 1번째 방법
+        //let firstTd = node.parentNode.previousElementSibling.previousElementSibling.innerText;
+        //let secondTd = node.parentNode.previousElementSibling.innerText;
+        
+        // 2번째 방법
+        let tds = node.closest("tr").children; //자식 노드들의(element) 배열로 나옴
+        alert(tds[0].innerText);
+        alert(tds[1].innerText);
+
+        //alert(firstTd);
+        //alert(secondTd);
+      }
+
+
+
+    });
+  </script>
+
+</body>
+</html>

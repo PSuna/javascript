@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>JSON : JavaScript Object Notation</h3>
+  <script>
+    let data = {name : 'park', age : 20, hobby : ['독서','게임']};
+    // 첫번째 취미만 출력
+    console.log(data.hobby[0]); // {} -> . 으로 접근 / [] -> [0] 인덱스로 접근
+
+    let datas =[
+      { name : 'park', 
+        age : 20, 
+        hobby : ['독서','게임']
+      },
+      { name : 'kim', 
+        age : 20, 
+        hobby : ['잠','먹기']
+      }
+    ]
+    console.log(datas[0].hobby[0]);
+    
+    //두번째 객체의 name 속성
+    console.log(datas[1].name);
+
+    let info = {
+      result : true,
+      count : 4,
+      data : [
+              { name : 'park', 
+                age : 20, 
+                hobby : ['독서','게임']
+              },
+              { name : 'kim', 
+                age : 20, 
+                hobby : ['잠','먹기']
+              }
+            ]
+    } 
+
+    //첫번째 객체의 첫번째 hobby가 나오도록 출력
+    console.log(info.data[0].hobby[0]);
+
+    let chartdata = [
+      ["mushrooms",3],
+      ["Options",1]
+    ]
+    
+    for(let i =0; i<chartdata.length; i++){
+        console.log(chartdata[i][1]);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    div { margin: 5px ; padding : 10px ; border: 1px solid blue;}
+  </style>
+</head>
+<body>
+  <div id="apple" class="ele">사과</div>
+  <div id="banana" class="ele">바나나</div>
+  <div id="kiwi" class="ele">키위</div>
+
+  <div id="basket"></div>
+  <div id="template" style="display: none">
+    <div class="fruit" title="사과">
+      <span>사과</span><button>삭제</button></div>
+  </div>
+  <script>
+
+      document.body.addEventListener("click",function(ev){ // 전파를 이용해서 자식들이 클릭되면 부모 이벤트가 실행됨
+        if(! ev.target.classList.contains("ele")){ // 부모에 자식 태그들이 많으니까 해당하는 자식을 클릭할때만 부모 이벤트가 실행되도록함
+          return; // 이벤트 함수 종료
+        }
+        let content = event.target.innerText;
+        let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`
+        basket.innerHTML += div; // 이동
+        });
+
+        //이벤트위임(그룹이벤트) : 부모태그에 이벤트를 지정
+        basket.addEventListener("click",function(ev){
+          let node = ev.target; // 실제로 이벤트가 발생한 대상(태그=타겟)
+          if(node.nodeName=="BUTTON"){ //span태그이면 부모div를 삭제 , ev.target의 nodeName은 대문자로 들어감 => BOUTTON
+            //node.parentNode.parentNode.remove();
+            // parentNode.parentNode = closest();
+            node.closest("div").remove(); // 조상 노드들중에서 가장 가까운 조상 노드를 찾는것
+          }
+        });
+        
+    
+  </script>
+</body>
+</html>

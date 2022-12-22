@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <input id="dt"><button id="btnSelect">조회</button>
+  <div id="result"></div>
+  <script>
+
+    btnSelect.addEventListener("click",function(){
+      //1. xhr 객체 생성 : 서버랑 통신시켜주는 객체생성 new Date와 같은거임
+      let xhr = new XMLHttpRequest();
+
+      // 2. ★ 콜백함수: 여기서 모든 처리가 이루어짐
+      // ★ 만약 callback() 이라면 함수가 바로 실행되므로 연결만 시켜주기위해서 callback 이어야함
+      xhr.onload = function(){callback(xhr);} // callback함수의 인수로 xhr 매개변수를 넘겨줌
+
+      // 3. 요청 연결
+      if(dt.value == ""){
+        alert("입력값이없음");
+        result.innerText = "";
+        return;
+      }else{
+        let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=" + dt.value;
+        xhr.open("get", url);
+      }
+      // 4. 서버쪽으로 요청 전달
+      xhr.send();
+    })
+
+    function callback(xhr){
+      let movies = JSON.parse(xhr.response);
+      let mvlist = movies.boxOfficeResult.dailyBoxOfficeList
+      // result(div) 내용을 삭제
+      result.innerText = "";
+      for(let i =0; i<mvlist.length; i++ ){
+        //console.log(mvlist[i].movieNm);
+        // `` 문자 => innerHTML += `문자열`
+        // node => append(node)
+        result.innerHTML += `<div><span class="no">${mvlist[i].rank}</span>
+                            <span class="title">${mvlist[i].movieNm}</span>
+                            <span class="movieCd">${mvlist[i].movieCd}</span>
+                            </div>`
+        
+      }
+    }
+  </script>
+</body>
+</html>
