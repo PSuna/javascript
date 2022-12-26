@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 40%;
+      }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
 
-.container {
-  padding: 2px 16px;
-}
-#container { /*스타일은 알아서 바꿔보기*/
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
-  grid-gap: 20px;
-}
-</style>
-</head>
-<body>
-
-<h2>Card</h2>
-<div id="container">
-  <div class="card">
-    <img src="img/말티즈.jpg" alt="Avatar" style="width:100%;">
-    <div class="container">
-      <h4><b>John Doe</b></h4> 
-      <p>Architect & Engineer</p> 
+      .container {
+        padding: 2px 16px;
+      }
+      #container {
+        /*스타일은 알아서 바꿔보기*/
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 300px);
+        grid-gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Card</h2>
+    <div id="container">
+      <div class="card">
+        <img src="img/말티즈.jpg" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>John Doe</b></h4>
+          <p>Architect & Engineer</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<script>
-  /*위에 카드를 만들어서 name과 skill, img을 넣어주고 persons개수만큼 container에 추가*/
-  let persons = [{name:"choi", skill:"말하기", img:"img/강아지.jfif"}, 
-                {name:"park", skill:"발표능력", img:"img/강아지2.jfif"},
-                {name:"kim", skill:"업무능력", img:"img/강아지3.jfif"} ];
+    <script>
+      /*위에 카드를 만들어서 name과 skill, img을 넣어주고 persons개수만큼 container에 추가*/
+      let persons = [
+        { name: "choi", skill: "말하기", img: "img/강아지.jfif" },
+        { name: "park", skill: "발표능력", img: "img/강아지2.jfif" },
+        { name: "kim", skill: "업무능력", img: "img/강아지3.jfif" },
+      ];
 
-  // 첫번째 방법
-  /* for(let i = 0; i<persons.length; i++){
+      // 첫번째 방법
+      /* for(let i = 0; i<persons.length; i++){
     let newNode = `<div class="card">
                     <img src="${persons[i].img}" alt="Avatar" style="width:100%;">
                     <div class="container">
@@ -53,15 +55,14 @@
     container.innerHTML += newNode;
   } */
 
-  //두번째 방법: cloneNode 사용해서 만들어보기 append2.html 참고해서
-  for(let i=0; i<persons.length; i++){
-    let div = document.getElementsByClassName("card")[0].cloneNode(true);//아래의 자식태그까지 복사
-    div.querySelector("img").src = persons[i].img;
-    div.querySelector("b").innerText = persons[i].name;
-    div.querySelector("p").innerText = persons[i].skill;
-    container.append(div);
-  }
-  
-</script>
-</body>
-</html> 
+      //두번째 방법: cloneNode 사용해서 만들어보기 append2.html 참고해서
+      for (let i = 0; i < persons.length; i++) {
+        let div = document.getElementsByClassName("card")[0].cloneNode(true); //아래의 자식태그까지 복사
+        div.querySelector("img").src = persons[i].img;
+        div.querySelector("b").innerText = persons[i].name;
+        div.querySelector("p").innerText = persons[i].skill;
+        container.append(div);
+      }
+    </script>
+  </body>
+</html>
