@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  let arr = [
+    {no:1, name:"kim", age:20},
+    {no:2, name:"hong", age:30},
+    {no:3, name:"park", age:15},
+    {no:4, name:"choi", age: 25 }
+  ];
+  /* arr.sort(function(a,b){return a.age-b.age});
+  console.table(arr); */
+
+/*   arr.sort(function (a, b) { 
+    if(a.name > b.name) return 1; // a > b
+    else if(a.name < b.name) return -1; // a < b
+    else return 0; // a = b
+   });
+  console.table(arr); */
+  
+  //필터링
+  let arr2 = [];
+  /* for(let i =0; i<arr.length; i++){ // 나이가 20이상이면 arr2에 push
+    if(arr[i].age >= 20){
+      arr2.push(arr[i]);
+    }
+  } */
+  
+  arr2=arr.filter(emp => emp.name == "kim");
+  console.table(arr2);
+
+  </script>
+</body>
+</html>
