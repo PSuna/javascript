@@ -9,13 +9,16 @@
 <body>
   <h3>post관리</h3>
   <button onclick="selectPost()">post조회</button>
-  <div id="postlist"></div>
+
+  <div id="postlist"></div> <!--결과 출력-->
+
   <form><!--AJAX를 사용하면 form태그와 input의 name, type도 필요없음-->
     <input id ="id" placeholder="id">
     <input id="title" placeholder="title">
     <input id="author" placeholder="author">
-    <button id="btnAdd" type="button">포스트등록</button> <!--button에 type을 생략하면 submit임-->
+    <button id="btnAdd" type="button">포스트등록</button> <!--button에 type="button"을 생략하면 submit임-->
   </form>
+
   <script>
     selectPost(); // 함수 호출 , hoisting
     btnAdd.addEventListener("click", insertPost); // 등록기능 - 직접 이벤트
@@ -23,7 +26,7 @@
 
     // post 삭제 - delete방식, /posts/1
     function deletePost(ev){
-      let id = ev.target.getAttribute("data-id"); 
+      let id = ev.target.getAttribute("data-id"); // 클릭한 버튼의 data-id 속성값을 가져옴
       let url = "http://localhost:3000/posts/" + id; // 주소창에 삭제할부분(id) 넣으면 자동 삭제됨
 
       let xhr = new XMLHttpRequest();
@@ -49,26 +52,25 @@
       xhr.open("post",url);
       xhr.setRequestHeader("Content-Type", "application/json"); // post방식은 queryString으로도 보낼수있고, json 형식(문자열)으로 보낼수도있음
       let data = {id: parseInt(id.value), title: title.value, author:author.value};
-      xhr.send(JSON.stringify(data)); // 서버간에 보내야하는 데이터는 string 형식이어야함
-      
+      xhr.send(JSON.stringify(data)); // 서버와 주고받는 데이터는 string 형식이어야함
     }
     
     // post 전체 조회 - get방식
     function selectPost(){
-      let url = "http://localhost:3000/posts";
+      let url = "http://localhost:3000/posts"; // json-server에서 제공하는 데이터페이지(db.json)
       let xhr = new XMLHttpRequest();
       
       xhr.onload = function(){ // 콜백함수
         console.log("요청 완료");
         //postlist.innerHTML += xhr.responseText; // xhr.responseText는 xhr.response와 같다
         
-        const post = JSON.parse(xhr.responseText); // 배열
+        const post = JSON.parse(xhr.responseText); // 객체배열 , xhr.responseText 와 xhr.response는 같다
 
         postlist.innerHTML = "";
 
         for( let i =0; i<post.length; i++){
           postlist.innerHTML += `<div>${post[i].id} ${post[i].title}
-                                 <button data-id="${post[i].id}">삭제</button></div>`; // data- 뒤에 마음대로 이름을 줘도됨 pw나 hp 같이
+                                 <button data-id="${post[i].id}">삭제</button></div>`; // ★data- 뒤에 마음대로 이름을 줘도됨 pw나 hp 같이
         }
 
         //console.table(xhr.responseText); // xhr.responseText : 응답결과

@@ -8,7 +8,7 @@
 </head>
 <body>
   <h3>comments관리</h3>
-  <button type="button" id="btnSelect">목록조회</button>
+  <button type="button" id="btnSelect" onclick="selectComments">목록조회</button>
   <div id="commentsList"></div>
   <form>
     <input id="id" placeholder="id">
@@ -18,7 +18,6 @@
   <script>
 
     selectComments(); // 목록조회 함수 호출
-    btnSelect.addEventListener("click",select); // 목록조회 버튼 클릭시 이벤트
     btnReg.addEventListener("click",postComments); // 등록버튼 클릭시 이벤트
     commentsList.addEventListener("click",deleteComments); // 그룹이벤트
 
@@ -54,10 +53,6 @@
       xhr.send(JSON.stringify(data)); // 서버간에 보내야하는 데이터는 string 형식이어야함
     }
 
-
-    function select(){
-      selectComments(); //목록조회 함수 호출
-    }
 
     // 목록조회
     function selectComments(){
