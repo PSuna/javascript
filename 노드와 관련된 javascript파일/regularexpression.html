@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="txt">
+  <button type="button" id="btn">검사</button>
+  <script>
+    btn.addEventListener("click", function(){
+      // 패턴 : 정규식 리터럴(상수) {} []
+      //let regexp = /^world$/; // 무조건 world가 들어와야함
+      //let regexp = /[a-z]{3}$/; // a~z가 3글자 들어와야함 , \d : 숫자 표현 , \W 영어,숫자 모두 들어갈수있음
+      let regexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      const re = regexp.test(txt.value);
+      console.log(re);
+    });
+  </script>
+</body>
+</html>
