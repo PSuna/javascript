@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <input id="dt" value="20221229"><button id="btnSelect">조회</button>
+  <div id="result"></div>
+  <div id="info"></div>
+  <script>
+    result.addEventListener("click",function(ev){
+      let movieCd = ev.target.innerHTML;
+      movieinfo(movieCd);
+    });
+
+    function promiseAjax(url){ // 비동기 함수를 동기식으로 실행해주는 함수
+      return new Promise(function(resolve, reject){
+        // 비동기함수 호출
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          resolve(xhr.response); // 결과를 넘겨줌 => then 절에 결과가 반환됨
+        };
+        xhr.onerror = function(){ // 에러가 났을때
+          reject(xhr.status);
+        }
+        xhr.open("get", url);
+        xhr.send();
+      });
+    }
+
+    function movieinfo(movieCd) {
+      let url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=f5eef3421c602c6cb7ea224104795888&movieCd="+movieCd;
+      promiseAjax(url) // 동기식으로 실행됨
+      //.then(res=>JSON.parse(res)) // resolve(xhr.response) 결과가 res로 반환됨
+      .then(res=>{
+        info.innerHTML = res;
+      })
+    }
+
+    btnSelect.addEventListener("click",function(){
+      let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=" + dt.value;
+      promiseAjax(url)
+      .then(res => JSON.parse(res))
+      .then(res => {
+        res = res.boxOfficeResult.dailyBoxOfficeList;
+        for(let i = 0; i<res.length; i++){
+          result.innerHTML += `<div>${res[i].movieCd}</div>`;
+        }
+        return res[0].movieCd;
+      })
+      .then(movieCd => movieinfo(movieCd))
+    })
+  </script>
+</body>
+</html>
